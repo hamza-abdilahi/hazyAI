@@ -3,6 +3,9 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import { generateText } from './services/openaiService';
+import Dropdown from '../src/components/dropdown/index';
+import Response from './components/response';
+
 
 function App() {
   const [prompt, setPrompt] = useState('');
@@ -19,6 +22,9 @@ function App() {
 
   return (
     <div>
+      <Dropdown functionality={undefined}/>
+      <Response response='test'/>
+
       <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
