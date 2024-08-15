@@ -5,7 +5,6 @@ import './App.css'
 import { generateText } from './services/openaiService';
 import Dropdown from '../src/components/dropdown/index';
 import Response from './components/response';
-import SubmitBtn from './components/submitButton';
 import TextInput from './components/textInput';
 import Logo from './components/logo';
 
@@ -28,22 +27,26 @@ function App() {
       {/* Page components */}
       <Logo />
       <Dropdown functionality={undefined} />
-      <TextInput />
-      <SubmitBtn />
-      <Response response='test' />
+      <TextInput
+        value={prompt}
+        setPrompt={setPrompt}
+        placeholder="Enter your prompt here"
+        handleGenerate={handleGenerate} />
+      <Response response={response} />
 
       {/* Vite & React logos */}
-      <div>
+      {/* <div>
+      
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
         <a href="https://react.dev" target="_blank">
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
-      </div>
+      </div> */}
 
       {/* AI section */}
-      <h1>OpenAI Text Generator</h1>
+      {/* <h1>OpenAI Text Generator</h1>
       <textarea
         value={prompt}
         onChange={(e) => setPrompt(e.target.value)}
@@ -53,7 +56,7 @@ function App() {
       <div>
         <h2>Response</h2>
         <p>{response}</p>
-      </div>
+      </div> */}
     </div>
 
   )

@@ -2,16 +2,16 @@ type Props = {
     response: string | undefined
 }
 
-const Response =  (props: Props) => {
+const Response = (props: Props) => {
 
-return (
-<div>
-    <h1>Response</h1>
-    <p>
-        {props.response}
-    </p>
-</div>
-)
+    return (
+        <div>
+            <h2>Response</h2>
+            <p>
+                {props.response}
+            </p>
+        </div>
+    )
 }
 
 export default Response;
