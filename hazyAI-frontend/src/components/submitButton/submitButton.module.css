@@ -1,0 +1,19 @@
+.button {
+    position: absolute;
+    right: 0;
+    bottom: 4px;
+    border-radius: 20px;
+    color: white;
+    background-color: black;
+    height: 40px;
+    width: 40px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+
+    /* Removing standard html styling */
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}

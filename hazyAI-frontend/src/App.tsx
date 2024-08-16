@@ -1,43 +1,53 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-import { generateText } from './services/openaiService';
+import { generateSummary } from './services/generateSummary';
+import { generateImpactAssessment, ImpactAssessment } from './services/generateImpactAssessment';
+import Dropdown from '../src/components/dropdown/index';
+import Response from './components/response';
+import TextInput from './components/textInput';
+import Logo from './components/logo';
+
+export type Action = "summarize" | "impact assessment" | "find" | "question" | "filter" | null
 
 function App() {
-  const [prompt, setPrompt] = useState('');
-  const [response, setResponse] = useState('');
+  const [action, setAction] = useState<Action | null>(null)
+  const [link, setLink] = useState('');
+  const [response, setResponse] = useState<ImpactAssessment | string | null>(null);
+
+  const selectService = (action: Action, prompt: string) => {
+    if (action === 'summarize') {
+      return generateSummary(prompt)
+    } else if (action === "impact assessment") {
+      return generateImpactAssessment(prompt);
+    } else {
+      console.log("Not a summary or IA");
+
+    }
+  }
 
   const handleGenerate = async () => {
     try {
-      const result = await generateText(prompt);
+      const result: any = await selectService(action, link)
       setResponse(result);
     } catch (error) {
-      console.error('Error generating text:', error);
+      console.error('Error generating text: ', error);
     }
   };
 
   return (
-    <div>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>OpenAI Text Generator</h1>
-      <textarea
-        value={prompt}
-        onChange={(e) => setPrompt(e.target.value)}
-        placeholder="Enter your prompt here"
-      />
-      <button onClick={handleGenerate}>Generate Text</button>
-      <div>
-        <h2>Response</h2>
-        <p>{response}</p>
-      </div>
+    <div className='content'>
+      <Logo />
+      <h1>HazyAI</h1>
+      <Dropdown setAction={setAction} />
+      {action &&
+        <TextInput
+          value={link}
+          setPrompt={setLink}
+          placeholder="Enter link to document"
+          handleGenerate={handleGenerate}
+        />
+      }
+      < Response response={response} />
     </div>
 
   )

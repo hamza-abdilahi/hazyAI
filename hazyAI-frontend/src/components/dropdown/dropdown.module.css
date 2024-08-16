@@ -1,0 +1,13 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0px;
+  width: 350px;
+}
+
+.dropdown {
+  padding: 5px;
+  border-radius: 5px;
+  margin-top: 10px;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
