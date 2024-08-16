@@ -5,9 +5,15 @@
   text-align: center;
 }
 
-/* .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-} */
+
+h1 {
+  font-family: 'Varela Round';
+  font-size: 50px;
+  margin: 10px;
+}
