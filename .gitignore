@@ -2,3 +2,7 @@
 .idea
 hazyAI-backend/node_modules
 .terraform
+node_modules
+.gitignore
+hazyAI-frontend/dist
+hazyAI-frontend/.gitignore
