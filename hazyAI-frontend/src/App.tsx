@@ -32,7 +32,6 @@ function App() {
 
   const handleGenerate = async () => {
     try {
-      // const result: any = await selectService(action, link)
       const result = await retrieveOpenAiResponse(action, link)
       setResponse(result);
     } catch (error) {

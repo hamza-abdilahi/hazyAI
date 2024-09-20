@@ -20,9 +20,9 @@ const Dropdown = (props: Props) => {
         <option disabled selected>- What would you like to do? -</option>
         <option value={"summarize"}>Summarize</option>
         <option value={"impact assessment"}>Create Impact Assessment</option>
-        <option value={"find"}>Find and replace</option>
-        <option value={"question"}>Ask a question</option>
-        <option value={"filter"}>Filter information</option>
+        <option value={"find"}>Find and replace [Coming soon]</option>
+        <option value={"question"}>Ask a question [Coming soon]</option>
+        <option value={"filter"}>Filter information [Coming soon]</option>
       </select>
     </form>
   )
